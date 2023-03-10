@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
+        Bomb bomb = other.gameObject.GetComponent<Bomb>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (bomb)
+        {
+            bomb.Die();
+
+            Destroy(gameObject);
+        }
     }
 }
