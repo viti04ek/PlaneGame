@@ -14,10 +14,10 @@ public class CameraMove : MonoBehaviour
             transform.position = change;
 
 
-        if (transform.position.x > 185)
-            transform.position = new Vector3(185, transform.position.y, transform.position.z);
+        if (transform.position.x > 147)
+            transform.position = new Vector3(147, transform.position.y, transform.position.z);
 
-        if (transform.position.x < -185)
-            transform.position = new Vector3(-185, transform.position.y, transform.position.z);
+        if (transform.position.x < -147)
+            transform.position = new Vector3(-147, transform.position.y, transform.position.z);
     }
 }
