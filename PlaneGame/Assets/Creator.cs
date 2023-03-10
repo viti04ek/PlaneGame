@@ -13,7 +13,7 @@ public class Creator : MonoBehaviour
         {
             if (Random.Range(0, 6) == 0)
             {
-                Vector3 position = new Vector3(i, Random.Range(-25f, 25f), 0);
+                Vector3 position = new Vector3(i, Random.Range(-25f, 23f), 0);
 
                 if (Random.Range(0, 3) == 0)
                     Instantiate(BombPrefab, position, Quaternion.identity);

@@ -8,7 +8,16 @@ public class CameraMove : MonoBehaviour
 
     void Update()
     {
+        Vector3 change = new Vector3(Target.position.x, 0, 0);
+
         if (Target)
-            transform.position = Target.position;
+            transform.position = change;
+
+
+        if (transform.position.x > 185)
+            transform.position = new Vector3(185, transform.position.y, transform.position.z);
+
+        if (transform.position.x < -185)
+            transform.position = new Vector3(-185, transform.position.y, transform.position.z);
     }
 }
