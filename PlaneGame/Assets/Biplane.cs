@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Biplane : MonoBehaviour
 {
-    public int Health;
+    private int Health = 5;
 
     public Score Score;
 

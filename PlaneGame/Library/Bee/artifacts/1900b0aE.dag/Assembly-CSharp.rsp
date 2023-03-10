@@ -353,6 +353,7 @@
 "Assets/Bullet.cs"
 "Assets/CameraMove.cs"
 "Assets/Coin.cs"
+"Assets/Creator.cs"
 "Assets/Gun.cs"
 "Assets/Score.cs"
 -langversion:9.0
