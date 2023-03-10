@@ -9,10 +9,14 @@ public class Score : MonoBehaviour
 
     public Text CoinsText;
 
+    public AudioSource ScoreCoin;
+
 
     public void AddOne()
     {
         Coins++;
+
+        ScoreCoin.Play();
 
         CoinsText.text = Coins.ToString();
     }
