@@ -14,10 +14,10 @@ public class CameraMove : MonoBehaviour
             transform.position = change;
 
 
-        if (transform.position.x > 147)
-            transform.position = new Vector3(147, transform.position.y, transform.position.z);
+        float x = Mathf.Clamp(transform.position.x, -147, 147);
+        float y = transform.position.y;
+        float z = transform.position.z;
 
-        if (transform.position.x < -147)
-            transform.position = new Vector3(-147, transform.position.y, transform.position.z);
+        transform.position = new Vector3(x, y, z);
     }
 }

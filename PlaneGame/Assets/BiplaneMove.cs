@@ -10,6 +10,17 @@ public class BiplaneMove : MonoBehaviour
     public float ForceVelue;
     public float TorqueValue;
 
+
+    private void Update()
+    {
+        float x = Mathf.Clamp(transform.position.x, -200, 200);
+        float y = Mathf.Clamp(transform.position.y, -27, 23);
+        float z = transform.position.z;
+
+        transform.position = new Vector3(x, y, z);
+    }
+
+
     void FixedUpdate()
     {
         Rigidbody.AddForce(transform.forward * ConstantForceValue, ForceMode.VelocityChange);
@@ -19,18 +30,5 @@ public class BiplaneMove : MonoBehaviour
 
         float horizontalInput = Input.GetAxis("Horizontal");
         Rigidbody.AddTorque(transform.right * TorqueValue * horizontalInput, ForceMode.VelocityChange);
-
-
-        if (transform.position.y > 23)
-            transform.position = new Vector3(transform.position.x, 23, transform.position.z);
-
-        if (transform.position.y < -27)
-            transform.position = new Vector3(transform.position.x, -27, transform.position.z);
-
-        if (transform.position.x > 200)
-            transform.position = new Vector3(200, transform.position.y, transform.position.z);
-
-        if (transform.position.x < -200)
-            transform.position = new Vector3(-200, transform.position.y, transform.position.z);
     }
 }
