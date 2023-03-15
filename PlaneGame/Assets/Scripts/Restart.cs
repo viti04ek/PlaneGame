@@ -13,6 +13,7 @@ public class Restart : MonoBehaviour
     public BiplaneMove BiplaneMove;
     public Creator Creator;
     public Score Score;
+    public HealthBar HealthBar;
 
 
     public void GameOver()
@@ -32,5 +33,6 @@ public class Restart : MonoBehaviour
         Creator.Restart();
         Biplane.Restart();
         Score.Restart();
+        HealthBar.Restart();
     }
 }

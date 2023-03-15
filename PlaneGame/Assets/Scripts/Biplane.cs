@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Biplane : MonoBehaviour
 {
-    private int Health = 5;
+    public int Health { get; private set; } = 5;
 
     public Score Score;
 
     public Restart RestartGame;
+
+    public HealthBar HealthBar;
 
     private Quaternion _startRotation;
 
@@ -26,6 +28,7 @@ public class Biplane : MonoBehaviour
         if (bomb)
         {
             Health -= 1;
+            HealthBar.HideHeart();
 
             if (Health <= 0)
             {
