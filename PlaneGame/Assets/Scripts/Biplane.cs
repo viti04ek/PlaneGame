@@ -8,6 +8,16 @@ public class Biplane : MonoBehaviour
 
     public Score Score;
 
+    public Restart RestartGame;
+
+    private Quaternion _startRotation;
+
+
+    private void Start()
+    {
+        _startRotation = transform.rotation;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,9 +27,9 @@ public class Biplane : MonoBehaviour
         {
             Health -= 1;
 
-            if(Health <= 0)
+            if (Health <= 0)
             {
-                Destroy(gameObject);
+                RestartGame.GameOver();
             }
 
             bomb.Die();
@@ -32,7 +42,16 @@ public class Biplane : MonoBehaviour
         {
             coin.Die();
 
-            Score.AddOne();
+            Score.AddOne(other.gameObject);
         }
+    }
+
+
+    public void Restart()
+    {
+        transform.position = new Vector3(-5f, 2f, 0f);
+        transform.rotation = _startRotation;
+
+        Health = 5;
     }
 }

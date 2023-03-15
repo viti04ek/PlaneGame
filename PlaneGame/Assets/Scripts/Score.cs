@@ -11,13 +11,24 @@ public class Score : MonoBehaviour
 
     public AudioSource ScoreCoin;
 
+    public Creator Creator;
 
-    public void AddOne()
+
+    public void AddOne(GameObject scoreCoin)
     {
         Coins++;
 
         ScoreCoin.Play();
 
+        CoinsText.text = Coins.ToString();
+
+        Creator.RemoveCoin(scoreCoin);
+    }
+
+
+    public void Restart()
+    {
+        Coins = 0;
         CoinsText.text = Coins.ToString();
     }
 }

@@ -10,6 +10,8 @@ public class BiplaneMove : MonoBehaviour
     public float ForceVelue;
     public float TorqueValue;
 
+    private bool _move = true;
+
 
     private void Update()
     {
@@ -23,12 +25,21 @@ public class BiplaneMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        Rigidbody.AddForce(transform.forward * ConstantForceValue, ForceMode.VelocityChange);
+        if (_move)
+        {
+            Rigidbody.AddForce(transform.forward * ConstantForceValue, ForceMode.VelocityChange);
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-            Rigidbody.AddForce(transform.forward * ForceVelue, ForceMode.VelocityChange);
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+                Rigidbody.AddForce(transform.forward * ForceVelue, ForceMode.VelocityChange);
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        Rigidbody.AddTorque(transform.right * TorqueValue * horizontalInput, ForceMode.VelocityChange);
+            float horizontalInput = Input.GetAxis("Horizontal");
+            Rigidbody.AddTorque(transform.right * TorqueValue * horizontalInput, ForceMode.VelocityChange);
+        }
+    }
+
+
+    public void SetMove(bool newValue)
+    {
+        _move = newValue;
     }
 }

@@ -355,6 +355,7 @@
 "Assets/Scripts/Coin.cs"
 "Assets/Scripts/Creator.cs"
 "Assets/Scripts/Gun.cs"
+"Assets/Scripts/Restart.cs"
 "Assets/Scripts/Score.cs"
 -langversion:9.0
 
